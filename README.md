@@ -69,6 +69,9 @@ The scanner is not available in the community edition. It scans the website auto
 ### What is a web cache?
 
 A web cache is a device or software application used to store temporary copies of information received by the origin server. It is a system for optimizing the World Wide Web. And it is implemented both client-side and server-side. The caching of images and other files can result in less overall delay when browsing the Web.
+
+![image](https://user-images.githubusercontent.com/39521088/158037397-4cb9a43e-953a-4c06-bac9-9bce8d81d917.png)
+
 Using a web cache has two main benefits:  
 1. Reduces latency - Web caches reduce latency by providing a method to shorten the physical distance between the client and the resources requested. In the case of a CDN, multiple edge servers are spread across the globe to provide users with points of presence that are located near them.
 2. Reduced origin server load - Since the requested resources are delivered from a web cache instead of the origin server, this reduces the origin server's load. With a reduced load on the origin server, this allows webmasters to be better prepared for traffic spikes and reduces the chance that the server will crash.
@@ -84,6 +87,8 @@ A CDN or, content delivery network, is a good example of a web cache. It sits in
 3. The request now passes through the CDN's server and goes directly to the site's origin server.
 4. Resources a, b, and c are fetched from the origin server.
 5. On the way back to the client, these resources are cached and stored on the CDN's server so that the CDN can deliver them upon subsequent requests.
+
+![image](https://user-images.githubusercontent.com/39521088/158037417-01eec1f6-615d-41aa-a363-ded1263ca726.png)
 
 Now, let's say that you're a webmaster using a web cache however, you've made a change to one of your assets. Since the asset is already cached, users are receiving the old version instead. There are a few ways to solve this issue.  
 
@@ -155,6 +160,8 @@ After finding an unkeyed input, the next steps are to assess how much damage you
 Cached responses can mask unkeyed inputs, so if you're trying to manually detect or explore unkeyed inputs, a cache-buster is crucial. If you have Param Miner loaded, you can ensure every request has a unique cache key by adding a parameter with a value of $randomplz to the query string.  
 
 When auditing a live website, accidentally poisoning other visitors is a perpetual hazard. Param Miner mitigates this by adding a cache buster to all outbound requests from Burp. This cache buster has a fixed value so you can observe caching behaviour yourself without it affecting other users.
+
+![image](https://user-images.githubusercontent.com/39521088/158037453-b6be6f4c-8d61-4fb0-b65b-aaa442719231.png)
 
 
 # How to prevent web cache poisoning vulnerabilities:
