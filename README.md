@@ -105,8 +105,7 @@ When it comes to caching web assets there are two primary types of caching metho
 1. Browser cache
 As the name implies, browser cache happens at the browser level. All web browsers have caching mechanisms in place to locally store cacheable web assets so that they can be accessed faster. If you access the same web page a couple of times and look at the site's assets from the Network tab and under the "Size" column in Chrome DevTools you'll notice a (from memory cache) message.
 This means that the assets were able to be retrieved locally, therefore reducing the load time dramatically.
-
-![image](https://user-images.githubusercontent.com/39521088/158037684-d6683428-ca4c-4346-a4c4-7d1b9267a6b2.png)
+<img width="1053" alt="image" src="https://user-images.githubusercontent.com/39521088/158037890-430fcbc5-4c58-43e7-bbcd-08ea5bbbbf57.png">
 
 2. Caching proxies
 Caching proxies are pieces of hardware that sit between the client and the server and deliver cached versions of assets from the origin. These proxies tend to sit close to network gateway on the server side. A proxy forwards a client request to the origin server thus hiding the client's network address.
@@ -123,7 +122,7 @@ Identifying whether two requests are trying to load the same resource can be tri
 
 Caches tackle this problem using the concept of cache keys – a few specific components of a HTTP request that are taken to fully identify the resource being requested.
 
-![image](https://user-images.githubusercontent.com/39521088/158037631-d2153fdd-b88c-4c11-a3de-50c0b344a9f7.png)
+<img src="https://user-images.githubusercontent.com/39521088/158037631-d2153fdd-b88c-4c11-a3de-50c0b344a9f7.png" width="500" height="313" align="bottom" />
 
 This means that caches think the following two requests are equivalent, and will happily respond to the second request with a response cached from the first:
 
