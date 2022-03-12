@@ -105,6 +105,9 @@ When it comes to caching web assets there are two primary types of caching metho
 1. Browser cache
 As the name implies, browser cache happens at the browser level. All web browsers have caching mechanisms in place to locally store cacheable web assets so that they can be accessed faster. If you access the same web page a couple of times and look at the site's assets from the Network tab and under the "Size" column in Chrome DevTools you'll notice a (from memory cache) message.
 This means that the assets were able to be retrieved locally, therefore reducing the load time dramatically.
+
+![image](https://user-images.githubusercontent.com/39521088/158037684-d6683428-ca4c-4346-a4c4-7d1b9267a6b2.png)
+
 2. Caching proxies
 Caching proxies are pieces of hardware that sit between the client and the server and deliver cached versions of assets from the origin. These proxies tend to sit close to network gateway on the server side. A proxy forwards a client request to the origin server thus hiding the client's network address.
 The downside to caching proxies is that they can be a little complicated. Users must configure their browsers correctly which may be a burden to some.
@@ -119,8 +122,12 @@ Caching hides some risky assumptions. Whenever a cache receives a request for a 
 Identifying whether two requests are trying to load the same resource can be tricky; requiring that the requests match byte-for-byte is utterly ineffective, as HTTP requests are full of inconsequential data, such as the requester's browser:
 
 Caches tackle this problem using the concept of cache keys – a few specific components of a HTTP request that are taken to fully identify the resource being requested.
+
+![image](https://user-images.githubusercontent.com/39521088/158037631-d2153fdd-b88c-4c11-a3de-50c0b344a9f7.png)
+
 This means that caches think the following two requests are equivalent, and will happily respond to the second request with a response cached from the first:
 
+<img width="927" alt="image" src="https://user-images.githubusercontent.com/39521088/158037636-6060b064-329a-4211-ac68-d302573fab24.png">
 
 As a result, the page will be served in the wrong language to the second visitor. This hints at the problem – any difference in the response triggered by an unkeyed input may be stored and served to other users. In theory, sites can use the 'Vary' response header to specify additional request headers that should be keyed. in practice, the Vary header is only used in a rudimentary way, CDNs like Cloudflare ignore it outright, and people don't even realise their application supports any header-based input.
 This causes a healthy number of accidental breakages, but the fun really starts when someone intentionally sets out to exploit it.
